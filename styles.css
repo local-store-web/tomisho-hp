@@ -252,14 +252,12 @@ h1 {
   align-items: center;
   justify-content: center;
   gap: 8px;
-  border: 1px dashed rgba(167, 123, 53, 0.38);
+  border: 0;
   border-radius: var(--radius);
-  background:
-    linear-gradient(135deg, rgba(167, 123, 53, 0.11), rgba(255, 253, 248, 0.56)),
-    rgba(255, 253, 248, 0.52);
+  background: transparent;
   color: var(--text-muted);
   text-align: center;
-  padding: 20px;
+  padding: 0;
 }
 
 .photo-slot span {
@@ -368,9 +366,6 @@ h1 {
 
   .menu-photo {
     height: 300px;
-    padding: 0;
-    border: 0;
-    background: transparent;
   }
 
   .menu-item div:last-child {
