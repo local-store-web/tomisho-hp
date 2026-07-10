@@ -340,6 +340,19 @@ h1 {
   padding: 14px;
 }
 
+.menu-photo {
+  min-height: 0;
+  height: clamp(260px, 20vw, 320px);
+}
+
+.menu-photo img {
+  min-height: 0;
+}
+
+.menu-photo-fish img {
+  object-position: left center;
+}
+
 .menu-item div:last-child {
   padding: 0 6px 8px;
 }
