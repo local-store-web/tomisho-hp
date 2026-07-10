@@ -361,6 +361,24 @@ h1 {
   padding: 0 6px 8px;
 }
 
+@media (min-width: 901px) {
+  .menu-item {
+    grid-template-rows: auto 1fr;
+  }
+
+  .menu-photo {
+    height: 300px;
+    padding: 0;
+    border: 0;
+    background: transparent;
+  }
+
+  .menu-item div:last-child {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
 .gallery-grid {
   display: grid;
   grid-template-columns: 1.05fr 1fr 1fr;
