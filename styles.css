@@ -230,6 +230,10 @@ h1 {
   background: rgba(255, 253, 248, 0.82);
 }
 
+.mobile-break {
+  display: none;
+}
+
 .hero-media {
   min-height: 520px;
   padding: 14px;
@@ -587,7 +591,8 @@ h1 {
   }
 
   h1 {
-    font-size: 40px;
+    font-size: 30px;
+    line-height: 1.12;
   }
 
   .site-header {
@@ -605,6 +610,15 @@ h1 {
 
   .section {
     padding: 64px 0;
+  }
+
+  .feature-card p {
+    font-size: 15px;
+    line-height: 1.75;
+  }
+
+  .mobile-break {
+    display: block;
   }
 
   .access-actions {
@@ -637,5 +651,11 @@ h1 {
 
   .sticky-action small {
     font-size: 13px;
+  }
+}
+
+@media (max-width: 380px) {
+  h1 {
+    font-size: 29px;
   }
 }
