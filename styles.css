@@ -1195,6 +1195,10 @@ button,summary {
     max-width: 54px;
     line-height: 1.7;
   }
+  .wordmark-small span {
+    display: block;
+    white-space: nowrap;
+  }
   .desktop-nav {
     display: none;
   }
