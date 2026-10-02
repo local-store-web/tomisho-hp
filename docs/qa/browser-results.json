@@ -1,0 +1,332 @@
+{
+  "testedAt": "2026-10-02T10:14:53.642Z",
+  "viewports": [
+    {
+      "width": 360,
+      "status": "passed",
+      "viewport": 360,
+      "documentWidth": 360,
+      "images": [
+        {
+          "src": "./assets/optimized/grilled-fish-960.webp",
+          "loaded": true,
+          "width": 287,
+          "height": 312
+        },
+        {
+          "src": "./assets/optimized/seasonal-sashimi-960.webp",
+          "loaded": true,
+          "width": 314,
+          "height": 305
+        },
+        {
+          "src": "./assets/optimized/uni-bite-960.webp",
+          "loaded": true,
+          "width": 270,
+          "height": 321
+        },
+        {
+          "src": "./assets/optimized/oyster-960.webp",
+          "loaded": true,
+          "width": 289,
+          "height": 267
+        },
+        {
+          "src": "./assets/images/logo-tomisho.png",
+          "loaded": true,
+          "width": 82,
+          "height": 82
+        }
+      ],
+      "undersizedTargets": [],
+      "localResources": [
+        {
+          "name": "grilled-fish-480.webp",
+          "bytes": 43104
+        },
+        {
+          "name": "styles.css",
+          "bytes": 24954
+        },
+        {
+          "name": "script.js",
+          "bytes": 5991
+        },
+        {
+          "name": "favicon.png",
+          "bytes": 4111
+        },
+        {
+          "name": "favicon.png",
+          "bytes": 4111
+        },
+        {
+          "name": "seasonal-sashimi-480.webp",
+          "bytes": 41648
+        },
+        {
+          "name": "uni-bite-480.webp",
+          "bytes": 22790
+        },
+        {
+          "name": "oyster-480.webp",
+          "bytes": 37866
+        },
+        {
+          "name": "logo-tomisho.png",
+          "bytes": 60956
+        }
+      ],
+      "headingCount": 1,
+      "errors": [],
+      "failedRequests": []
+    },
+    {
+      "width": 390,
+      "status": "passed",
+      "viewport": 390,
+      "documentWidth": 390,
+      "images": [
+        {
+          "src": "./assets/optimized/grilled-fish-960.webp",
+          "loaded": true,
+          "width": 317,
+          "height": 340
+        },
+        {
+          "src": "./assets/optimized/seasonal-sashimi-960.webp",
+          "loaded": true,
+          "width": 344,
+          "height": 334
+        },
+        {
+          "src": "./assets/optimized/uni-bite-960.webp",
+          "loaded": true,
+          "width": 296,
+          "height": 352
+        },
+        {
+          "src": "./assets/optimized/oyster-960.webp",
+          "loaded": true,
+          "width": 316,
+          "height": 293
+        },
+        {
+          "src": "./assets/images/logo-tomisho.png",
+          "loaded": true,
+          "width": 82,
+          "height": 82
+        }
+      ],
+      "undersizedTargets": [],
+      "localResources": [
+        {
+          "name": "grilled-fish-480.webp",
+          "bytes": 43104
+        },
+        {
+          "name": "styles.css",
+          "bytes": 24954
+        },
+        {
+          "name": "script.js",
+          "bytes": 5991
+        },
+        {
+          "name": "favicon.png",
+          "bytes": 4111
+        },
+        {
+          "name": "favicon.png",
+          "bytes": 4111
+        },
+        {
+          "name": "seasonal-sashimi-480.webp",
+          "bytes": 41648
+        },
+        {
+          "name": "uni-bite-480.webp",
+          "bytes": 22790
+        },
+        {
+          "name": "oyster-480.webp",
+          "bytes": 37866
+        },
+        {
+          "name": "logo-tomisho.png",
+          "bytes": 60956
+        }
+      ],
+      "headingCount": 1,
+      "errors": [],
+      "failedRequests": []
+    },
+    {
+      "width": 768,
+      "status": "passed",
+      "viewport": 768,
+      "documentWidth": 768,
+      "images": [
+        {
+          "src": "./assets/optimized/grilled-fish-960.webp",
+          "loaded": true,
+          "width": 392,
+          "height": 470
+        },
+        {
+          "src": "./assets/optimized/seasonal-sashimi-960.webp",
+          "loaded": true,
+          "width": 338,
+          "height": 294
+        },
+        {
+          "src": "./assets/optimized/uni-bite-960.webp",
+          "loaded": true,
+          "width": 338,
+          "height": 294
+        },
+        {
+          "src": "./assets/optimized/oyster-960.webp",
+          "loaded": true,
+          "width": 338,
+          "height": 294
+        },
+        {
+          "src": "./assets/images/logo-tomisho.png",
+          "loaded": true,
+          "width": 95,
+          "height": 95
+        }
+      ],
+      "undersizedTargets": [],
+      "localResources": [
+        {
+          "name": "grilled-fish-480.webp",
+          "bytes": 43104
+        },
+        {
+          "name": "styles.css",
+          "bytes": 24954
+        },
+        {
+          "name": "script.js",
+          "bytes": 5991
+        },
+        {
+          "name": "seasonal-sashimi-480.webp",
+          "bytes": 41648
+        },
+        {
+          "name": "uni-bite-480.webp",
+          "bytes": 22790
+        },
+        {
+          "name": "oyster-480.webp",
+          "bytes": 37866
+        },
+        {
+          "name": "favicon.png",
+          "bytes": 4111
+        },
+        {
+          "name": "favicon.png",
+          "bytes": 4111
+        },
+        {
+          "name": "logo-tomisho.png",
+          "bytes": 60956
+        }
+      ],
+      "headingCount": 1,
+      "errors": [],
+      "failedRequests": []
+    },
+    {
+      "width": 1440,
+      "status": "passed",
+      "viewport": 1440,
+      "documentWidth": 1440,
+      "images": [
+        {
+          "src": "./assets/optimized/grilled-fish-960.webp",
+          "loaded": true,
+          "width": 717,
+          "height": 620
+        },
+        {
+          "src": "./assets/optimized/seasonal-sashimi-960.webp",
+          "loaded": true,
+          "width": 634,
+          "height": 551
+        },
+        {
+          "src": "./assets/optimized/uni-bite-960.webp",
+          "loaded": true,
+          "width": 634,
+          "height": 551
+        },
+        {
+          "src": "./assets/optimized/oyster-960.webp",
+          "loaded": true,
+          "width": 634,
+          "height": 551
+        },
+        {
+          "src": "./assets/images/logo-tomisho.png",
+          "loaded": true,
+          "width": 95,
+          "height": 95
+        }
+      ],
+      "undersizedTargets": [],
+      "localResources": [
+        {
+          "name": "grilled-fish-960.webp",
+          "bytes": 108086
+        },
+        {
+          "name": "styles.css",
+          "bytes": 24954
+        },
+        {
+          "name": "script.js",
+          "bytes": 5991
+        },
+        {
+          "name": "favicon.png",
+          "bytes": 4111
+        },
+        {
+          "name": "favicon.png",
+          "bytes": 4111
+        },
+        {
+          "name": "seasonal-sashimi-960.webp",
+          "bytes": 89878
+        },
+        {
+          "name": "uni-bite-960.webp",
+          "bytes": 52860
+        },
+        {
+          "name": "oyster-960.webp",
+          "bytes": 92160
+        },
+        {
+          "name": "logo-tomisho.png",
+          "bytes": 60956
+        }
+      ],
+      "headingCount": 1,
+      "errors": [],
+      "failedRequests": []
+    }
+  ],
+  "status": "passed",
+  "reducedMotion": "passed: no atmospheric animation; normal readable content and native navigation",
+  "canvasLifecycle": "passed: stop, resume, hidden tab, visible tab",
+  "missing-context": "passed: decoration unavailable; content visible",
+  "save-data": "passed: decoration unavailable; content visible",
+  "low-memory": "passed: decoration unavailable; content visible",
+  "noJavaScript": "passed: all content and reservation links are available"
+}

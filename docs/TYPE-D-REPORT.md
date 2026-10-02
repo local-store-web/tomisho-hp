@@ -47,7 +47,7 @@
 
 既存の説明型カード構成を、5 つの章からなる没入型エディトリアルに置き換え。外部地図 iframe を直接リンクにして第三者リクエストを減らした。画像サイズ指定、lazy loading、Hero priority と srcset を導入。favicon、Restaurant JSON-LD、R&D noindex を追加。旧所有者 URL の canonical / OGP を確認済み現在 URL に修正。
 
-## 7. Verification status (source checkpoint)
+## 7. Verification status (rendered QA, 2026-10-02)
 
 実行済み:
 
@@ -59,7 +59,20 @@
 - JSON-LD が parse 可能で、review / rating / award / 推測の価格帯を含まない
 - 既存写真の実ピクセルを確認済み
 
-**未完了:** 実ブラウザの 360 / 390 / 768 / 1440px、スクリーンショット、console、タッチ・キーボード操作、実測 overflow / CLS / Lighthouse。現クラウド環境の Chromium が OS socket 制約で起動不可。公式 headless-shell の取得も無効な配布データで失敗。別の対応 QA 環境で同梱スクリプトを実行する必要がある。ソース検査を、実画面確認の代用として pass としていない。
+この環境の `/usr/bin/chromium` を Playwright から起動し、ローカル HTTP 上の実レンダリングを確認した。`BROWSER_EXECUTABLE=/usr/bin/chromium node tests/browser-qa.cjs` は **pass**。結果は `docs/qa/browser-results.json`、画像は `docs/qa/screenshots/` に保存。
+
+| viewport | first view | full page | result |
+| --- | --- | --- | --- |
+| 360 × 844 | `360-first-view.png` | `360-full.png` | pass |
+| 390 × 844 | `390-first-view.png` | `390-full.png` | pass |
+| 768 × 1000 | `768-first-view.png` | `768-full.png` | pass |
+| 1440 × 1000 | `1440-first-view.png` | `1440-full.png` | pass |
+
+各幅で水平 overflow なし、全写真ロード成功、console / page error / failed request なし、可視のリンク・ボタンは 44px 以上、h1 は 1 個。画像を目視し、desktop の横料理列、mobile の縦料理列、章の余白、写真の切り抜き、ヘッダー、固定下部 CTA と footer 余白を確認。PC は送りボタンとフォーカス後の右矢印キー、mobile は固定 CTA から店舗案内、footer から先頭への反復遷移を確認。skip link の Tab / Enter と focus outline も確認。
+
+Canvas は停止・再開、hidden tab 時の停止・復帰を animation-frame 計数で確認。context 不可、save-data、低メモリー時は動作ボタンが現れず本文が表示される。reduced-motion 時は演出ボタン非表示で通常コンテンツとナビが使え、JS 無効でも全文・電話リンクを利用可能。tel / Instagram / Maps の宛先はソースで照合し、実際に発信・外部ページ遷移はしていない。
+
+未実施: 実機 iOS / Android、スクリーンリーダー、Lighthouse、CLS / Core Web Vitals の計測、実回線での速度評価。Playwright の desktop/mobile viewport は端末そのものの保証ではない。
 
 ## 8. Purposeful review loop
 
@@ -77,11 +90,11 @@
 
 ### Round 2 — visual / typography / interaction
 
-対応ブラウザでの実画面確認待ち。目視済みと主張しない。
+4 幅の first view と full page を実画面で確認。390px の Hero で英語キャプションが魚の明るい部分にかかっていたため、mobile 写真上端のグラデーションを強めて読める状態にした。再撮影して確認。本文の小文字化、画像未読込、見切れ、固定 CTA と操作対象の重なりは見られなかった。
 
 ### Round 3 — narrow viewport / accessibility / performance
 
-対応ブラウザでの acceptance script と実機の確認待ち。必要な修正があれば実施する。
+Browser acceptance に native 横列の矢印キー、mobile 往復導線、Canvas の停止・復帰とフォールバックを追加し再実行、pass。実機確認は production checklist に残す。
 
 ## 9. Responsive and accessibility design
 
@@ -95,17 +108,16 @@
 
 ## 10. Performance
 
-ビルド不要、外部フォント・ライブラリー・tracker・iframe なし。主要 HTML / CSS / JS 合計は約 42KB（非圧縮、最終実測は QA ファイル参照）。4 枚の料理は responsive WebP、Hero のみ eager + high priority、下部写真とロゴは lazy。寸法 / aspect-ratio を持ち layout shift を抑制。Canvas は小数粒子のみで、停止条件を持つ。Lighthouse score と Core Web Vitals は未計測。
+ビルド不要、外部フォント・ライブラリー・tracker・iframe なし。主要 HTML / CSS / JS 合計は **41,611 bytes**（非圧縮ファイルサイズ、`docs/qa/asset-sizes.json`）。4 枚の料理は responsive WebP、Hero のみ eager + high priority、下部写真とロゴは lazy。寸法 / aspect-ratio を持ち layout shift を抑制。Canvas は小数粒子のみで、停止条件を持つ。Browser QA ではローカル HTTP 上で全画像と資産がロードしたことを確認。ファイルサイズは byte budget、ローカルの読込結果は機能確認であり、Lighthouse score・Core Web Vitals・実回線の体感速度を表さない。
 
 ## 11. Unresolved / production checklist
 
-1. 実ブラウザ QA と desktop / mobile スクリーンショットを完了する
-2. 店舗本人に営業時間、祝日の扱い、住所、電話、Maps、料理写真の利用権を再確認する
-3. 既存写真の季節・提供状況とコピーを確認する。素材写真は現在の献立の保証ではない
-4. 実際の店主・炭火・カウンター・外観を撮影し、抽象表現の必要箇所を更新する
-5. 本番採用案決定後、最終 URL・OGP 画像・noindex を見直す
-6. iOS Safari / Android Chrome の実機、VoiceOver、低速回線で再検証する
-7. 本番移行は別途個別承認を得る。ここでは実行しない
+1. 店舗本人に営業時間、祝日の扱い、住所、電話、Maps、料理写真の利用権を再確認する。日・月の定休と祝日表記の優先関係は未確定
+2. 既存写真の季節・提供状況とコピーを確認する。素材写真は現在の献立の保証ではない
+3. 実際の店主・炭火・カウンター・外観を撮影し、抽象表現の必要箇所を更新する
+4. 本番採用案決定後、最終 URL・OGP 画像・noindex を見直す
+5. iOS Safari / Android Chrome の実機、VoiceOver、低速回線で再検証する
+6. 本番移行は別途個別承認を得る。ここでは実行しない
 
 ## 12. Photography priorities
 

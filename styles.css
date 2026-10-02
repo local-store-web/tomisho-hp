@@ -974,7 +974,7 @@ button[hidden],[hidden] {
     filter:brightness(.84) saturate(.8)
   }
   .hero-image:after {
-    background:linear-gradient(180deg,#17232022,transparent 40%)
+    background:linear-gradient(180deg,#172320a6,transparent 48%)
   }
   .hero-image figcaption {
     font-size:8px;

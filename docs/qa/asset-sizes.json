@@ -6,7 +6,7 @@
   },
   "gzipBytes": {
     "index.html": 3823,
-    "styles.css": 5525,
+    "styles.css": 5524,
     "script.js": 2007
   },
   "optimizedImageBytes": {
@@ -19,5 +19,5 @@
     "uni-bite-480.webp": 22490,
     "uni-bite-960.webp": 52560
   },
-  "note": "File sizes only; network/runtime metrics not measured."
+  "note": "File sizes only. Browser QA measures successful local resource loads and interaction behavior; no Lighthouse or field performance metrics."
 }

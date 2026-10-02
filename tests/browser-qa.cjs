@@ -66,6 +66,16 @@ const server = http.createServer((req, res) => {
         await page.locator('.dish-prev').click();
         await page.waitForTimeout(700);
         assert(await page.locator('.tasting').evaluate(el => el.scrollLeft < 5));
+        await page.locator('.tasting').focus();
+        await page.keyboard.press('ArrowRight');
+        await page.waitForTimeout(700);
+        assert(await page.locator('.tasting').evaluate(el => el.scrollLeft > 0), `Keyboard tasting scroll at ${width}`);
+      } else {
+        assert(await page.locator('.mobile-booking').isVisible());
+        await page.locator('.mobile-booking a[href="#access"]').click();
+        assert.equal(new URL(page.url()).hash, '#access');
+        await page.locator('.back-top').click();
+        assert.equal(new URL(page.url()).hash, '#entrance');
       }
       await page.locator('.motion-control').click();
       assert.equal(await page.locator('.motion-control').getAttribute('aria-pressed'), 'true');
@@ -83,6 +93,45 @@ const server = http.createServer((req, res) => {
     assert.equal(await reducedPage.evaluate(() => getComputedStyle(document.documentElement).scrollBehavior), 'auto');
     report.reducedMotion = 'passed: no atmospheric animation; normal readable content and native navigation';
     await reduced.close();
+    const motion = await browser.newContext({ viewport: { width: 390, height: 844 } });
+    await motion.addInitScript(() => {
+      window.rafRequested = 0;
+      const nativeRequest = window.requestAnimationFrame.bind(window);
+      window.requestAnimationFrame = callback => { window.rafRequested++; return nativeRequest(callback); };
+    });
+    const motionPage = await motion.newPage();
+    await motionPage.goto(url, { waitUntil: 'networkidle' });
+    assert(await motionPage.evaluate(() => window.rafRequested > 0));
+    await motionPage.locator('.motion-control').click();
+    const stoppedAt = await motionPage.evaluate(() => window.rafRequested);
+    await motionPage.waitForTimeout(160);
+    assert.equal(await motionPage.evaluate(() => window.rafRequested), stoppedAt, 'Canvas continues when stopped');
+    await motionPage.locator('.motion-control').click();
+    await motionPage.waitForTimeout(160);
+    assert(await motionPage.evaluate(stopped => window.rafRequested > stopped, stoppedAt), 'Canvas did not resume');
+    await motionPage.evaluate(() => { Object.defineProperty(document, 'hidden', { configurable: true, get: () => true }); document.dispatchEvent(new Event('visibilitychange')); });
+    const hiddenAt = await motionPage.evaluate(() => window.rafRequested);
+    await motionPage.waitForTimeout(160);
+    assert.equal(await motionPage.evaluate(() => window.rafRequested), hiddenAt, 'Canvas continues in hidden tab');
+    await motionPage.evaluate(() => { Object.defineProperty(document, 'hidden', { configurable: true, get: () => false }); document.dispatchEvent(new Event('visibilitychange')); });
+    await motionPage.waitForTimeout(160);
+    assert(await motionPage.evaluate(hidden => window.rafRequested > hidden, hiddenAt), 'Canvas did not resume after visibility');
+    report.canvasLifecycle = 'passed: stop, resume, hidden tab, visible tab';
+    await motion.close();
+    for (const fallback of ['missing-context', 'save-data', 'low-memory']) {
+      const context = await browser.newContext({ viewport: { width: 390, height: 844 } });
+      await context.addInitScript(kind => {
+        if (kind === 'missing-context') HTMLCanvasElement.prototype.getContext = () => null;
+        if (kind === 'save-data') Object.defineProperty(navigator, 'connection', { configurable: true, get: () => ({ saveData: true }) });
+        if (kind === 'low-memory') Object.defineProperty(navigator, 'deviceMemory', { configurable: true, get: () => 1 });
+      }, fallback);
+      const fallbackPage = await context.newPage();
+      await fallbackPage.goto(url, { waitUntil: 'networkidle' });
+      assert(await fallbackPage.locator('.motion-control').isHidden(), `Canvas control visible with ${fallback}`);
+      assert(await fallbackPage.locator('h1').isVisible(), `Content hidden with ${fallback}`);
+      report[fallback] = 'passed: decoration unavailable; content visible';
+      await context.close();
+    }
     const noScript = await browser.newContext({ viewport: { width: 360, height: 844 }, javaScriptEnabled: false });
     const noScriptPage = await noScript.newPage();
     await noScriptPage.goto(url, { waitUntil: 'networkidle' });
