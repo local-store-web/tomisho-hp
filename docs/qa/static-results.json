@@ -1,0 +1,16 @@
+{
+  "status": "passed",
+  "checks": [
+    "HTML identity/headings/landmarks",
+    "unique IDs/internal anchors",
+    "local asset paths/srcsets",
+    "all image alt/sizing",
+    "external rel safety",
+    "fact/link consistency",
+    "metadata/canonical/noindex",
+    "Restaurant JSON-LD",
+    "reduced motion hooks"
+  ],
+  "nodes": 220,
+  "images": 5
+}

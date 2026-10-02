@@ -1,39 +1,56 @@
-# とみ笑 GitHub Pages site
+# とみ笑 WEBSITE LAB — TYPE D / Experience
 
-GitHub Pagesでそのまま公開できる静的HTML版です。WordPressやShopifyのテーマ化を前提にせず、`index.html`、`styles.css`、`script.js`だけで動きます。
+独立した R&D ブランチ `dot/tomisho-type-d-experience`。
+開始点は main `dc8170f92afbdf9ea543d3d928667f4e23d7efc1`。main・既存公開先・ドメインは変更しません。
 
-## 公開方法
+## 見る
 
-1. このフォルダの中身をGitHubリポジトリのルートへ置く
-2. GitHubの`Settings > Pages`で公開元を`main`ブランチの`/root`にする
-3. 公開URL`https://toraikura.github.io/tomisho-hp/`で表示確認する
+ビルド不要の HTML / CSS / Vanilla JavaScript です。
 
-まずはGitHub Pagesの仮URLで確認するため、`CNAME`は入れていません。内容が固まったら`www.tomisho.jp`をCustom domainに設定します。
+```sh
+python3 -m http.server 8033
+```
 
-## 編集する場所
+`http://localhost:8033` を開きます。JavaScript 無効でも本文・写真・電話予約・地図リンクを利用できます。
 
-- 店名、紹介文、住所、営業時間、電話番号: `index.html`
-- 色、余白、写真枠、スマホ表示: `styles.css`
-- スクロール時の表示アニメーション: `script.js`
-- 写真: `assets/images/`
+## コンセプト
 
-## 写真の入れ方
+「夜に、余熱を。」
 
-写真は`assets/images/`に置くのがおすすめです。例えば以下のように置くと管理しやすいです。
+入口 → 炭火 → 旬の料理 → カウンターと酒の余韻 → 荻窪の店舗案内。
+巨大な明朝体と炭色の余白、素材の近接写真で、一晩の距離感をつくります。
+PC では料理を横に見渡し、スマートフォンでは縦の編集ページとして読み進めます。
+スクロールはブラウザー標準のままです。
 
-- `assets/images/hero-sashimi.jpg`: ファーストビューの大きい写真
-- `assets/images/seasonal-sashimi.jpg`: 季節の料理
-- `assets/images/grilled-fish.jpg`: 魚料理
-- `assets/images/sashimi-plate.jpg`: ギャラリー用の料理写真
-- `assets/images/oyster.jpg`: ギャラリー用の料理写真
-- `assets/images/skewer.jpg`: ギャラリー用の料理写真
-- `assets/images/uni-bite.jpg`: 一品料理
+## ファイル
 
-HTML側では、該当する`.photo-slot`の中身を`<img src="./assets/images/hero-sashimi.jpg" alt="とみ笑の料理" />`のように差し替えます。
+- `index.html`: 意味構造・事実情報・metadata
+- `styles.css`: 独立した TYPE D のデザイン。360 / 390 / 768 / 1440px を想定
+- `script.js`: 料理の送りボタン、章ナビ、任意の低負荷 Canvas 演出
+- `assets/images/`: 既存素材を保存
+- `assets/optimized/`: 既存料理写真だけから作成した 480 / 960px WebP
+- `assets/favicon.png`: 既存ロゴの小型版
+- `tests/validate.py`: 外部依存のないソース・リンク整合性チェック
+- `tests/browser-qa.cjs`: 別途 Playwright が使える QA 環境向けの実ブラウザ検証
+- `docs/TYPE-D-REPORT.md`: 設計意図、検証の範囲、本番化前の確認事項
 
-## 公開前に確認すること
+## 検証
 
-- 住所、電話番号、営業時間が最新か
-- GoogleマップURLが店舗の正しいURLか
-- 写真枠を実店舗の写真に差し替えるか
-- OGP画像を用意するか
+```sh
+python3 tests/validate.py
+node --check script.js
+node --check tests/browser-qa.cjs
+# Playwright が利用できる環境でのみ実行（サイトの実行依存ではありません）
+node tests/browser-qa.cjs
+```
+
+ブラウザ検証は `docs/qa/screenshots/` と `docs/qa/browser-results.json` に結果を作ります。
+ローカル HTTP のみを使用し、外部公開・電話発信・予約送信はしません。
+
+## 実験用の公開制御
+
+- `noindex, nofollow` を設定した比較用実装
+- canonical / OGP URL は確認済みの現在の公開ホームページ `https://local-store-web.github.io/tomisho-hp/` を参照
+- 本番採用前に営業情報・権利・撮影・最終 URL を確認し、採用が決まった場合のみ noindex を見直す
+- 公開設定変更・merge・deploy はこのブランチでは行わない
+- 今回はライブラリー、ビルド、CMS、外部フォント、トラッカー、外部 iframe を追加していない
