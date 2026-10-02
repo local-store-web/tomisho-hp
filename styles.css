@@ -515,6 +515,7 @@ h1 span {
 }
 .about-copy h2 {
   margin-bottom: 36px;
+  letter-spacing: 0.02em;
 }
 .about-copy > p:not(.section-index) {
   font-size: 14px;
@@ -988,6 +989,9 @@ h1 span {
   .about-image {
     height: 450px;
   }
+  .about-copy h2 {
+    font-size: 31px;
+  }
   .story-layout {
     gap: 55px;
   }
@@ -1115,6 +1119,9 @@ h1 span {
   .about-copy h2,
   .reservation-section h2 {
     font-size: 33px;
+  }
+  .about-copy h2 {
+    font-size: 31px;
   }
   .section-description {
     margin-top: 15px;
