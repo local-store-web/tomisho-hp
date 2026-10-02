@@ -1,39 +1,29 @@
-# とみ笑 GitHub Pages site
+# TYPE C — Standard Restaurant / とみ笑
 
-GitHub Pagesでそのまま公開できる静的HTML版です。WordPressやShopifyのテーマ化を前提にせず、`index.html`、`styles.css`、`script.js`だけで動きます。
+独立した静的HTML実装。`index.html`を直接開くか、作業ディレクトリで `python3 -m http.server 8000` を実行して確認できます。ライブラリ、ビルド、外部フォント、外部JavaScriptは不要です。
 
-## 公開方法
+## 設計
 
-1. このフォルダの中身をGitHubリポジトリのルートへ置く
-2. GitHubの`Settings > Pages`で公開元を`main`ブランチの`/root`にする
-3. 公開URL`https://toraikura.github.io/tomisho-hp/`で表示確認する
+- 予約、料理、営業時間、アクセスを最短で見つけられる構成
+- Hero → お料理 → 店のこと → 料理人とカウンター → 店舗情報 → ご予約 → お知らせ
+- 料理写真は既存リポジトリ素材のみ。`assets/optimized/` はそれらの WebP 派生で、元画像は残しています
+- 店主、店内、酒、炭火の実写がないため、それらを偽る写真は置いていません。Story は抽象的なタイポグラフィで構成しています
+- お知らせは架空の記事を設けず、Instagramへの導線だけを配置しています
 
-まずはGitHub Pagesの仮URLで確認するため、`CNAME`は入れていません。内容が固まったら`www.tomisho.jp`をCustom domainに設定します。
+## 情報を更新する場所
 
-## 編集する場所
+| 内容 | ファイル / 場所 |
+| --- | --- |
+| 店名、住所、営業時間、電話番号 | `index.html` の店舗情報、Footer、構造化データ |
+| 料理の分類、説明、写真 | `index.html` の `#menu` 内の各 `<article>` |
+| お知らせ導線 | `index.html` の `#news` |
+| 色・余白・レスポンシブ | `styles.css` 冒頭の変数とメディアクエリ |
+| モバイルメニュー動作 | `script.js` |
 
-- 店名、紹介文、住所、営業時間、電話番号: `index.html`
-- 色、余白、写真枠、スマホ表示: `styles.css`
-- スクロール時の表示アニメーション: `script.js`
-- 写真: `assets/images/`
+将来CMS化する場合、`#menu` の各 `<article>` を Menu コレクション（見出し、説明、画像、alt、順番）、`#news` を News コレクション（日付、見出し、本文、公開状態）、店舗情報を Store の単一レコードとして切り出せます。現在の料理紹介は実際のメニュー名・価格を確定したものではありません。価格は掲載していません。
 
-## 写真の入れ方
+## SEO と公開前の確認
 
-写真は`assets/images/`に置くのがおすすめです。例えば以下のように置くと管理しやすいです。
+R&D案のため `noindex, nofollow` を指定しています。公開版に採用する時だけ外し、canonical、OGP URLと画像、Restaurant JSON-LD の情報を再確認してください。canonical は確認済みの現行公開URLを指します。住所、営業時間、電話、Instagram、画像権利、最新メニューも店側で再確認してください。
 
-- `assets/images/hero-sashimi.jpg`: ファーストビューの大きい写真
-- `assets/images/seasonal-sashimi.jpg`: 季節の料理
-- `assets/images/grilled-fish.jpg`: 魚料理
-- `assets/images/sashimi-plate.jpg`: ギャラリー用の料理写真
-- `assets/images/oyster.jpg`: ギャラリー用の料理写真
-- `assets/images/skewer.jpg`: ギャラリー用の料理写真
-- `assets/images/uni-bite.jpg`: 一品料理
-
-HTML側では、該当する`.photo-slot`の中身を`<img src="./assets/images/hero-sashimi.jpg" alt="とみ笑の料理" />`のように差し替えます。
-
-## 公開前に確認すること
-
-- 住所、電話番号、営業時間が最新か
-- GoogleマップURLが店舗の正しいURLか
-- 写真枠を実店舗の写真に差し替えるか
-- OGP画像を用意するか
+ブランチからの本番反映、Pages 設定変更、デプロイはこの案の対象外です。

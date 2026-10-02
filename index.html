@@ -1,266 +1,417 @@
 <!DOCTYPE html>
 <html lang="ja">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>旬ものと日本酒 とみ笑 | 荻窪</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="theme-color" content="#f4f1e9" />
+    <title>旬ものと日本酒 とみ笑｜荻窪の和食</title>
+    <meta name="robots" content="noindex, nofollow" />
     <meta
       name="description"
-      content="荻窪の和食店、旬ものと日本酒 とみ笑。季節の料理と新潟の地酒を静かに楽しめる一軒です。"
+      content="荻窪駅北口から徒歩4分。旬の魚、炭火の料理と日本酒を楽しむ「旬ものと日本酒 とみ笑」。営業時間、アクセス、電話予約はこちら。"
     />
+    <link
+      rel="canonical"
+      href="https://local-store-web.github.io/tomisho-hp/"
+    />
+    <link rel="icon" type="image/png" href="./assets/images/logo-tomisho.png" />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="旬ものと日本酒 とみ笑 | 荻窪" />
-    <meta property="og:url" content="https://toraikura.github.io/tomisho-hp/" />
+    <meta property="og:locale" content="ja_JP" />
+    <meta property="og:title" content="旬ものと日本酒 とみ笑｜荻窪の和食" />
     <meta
       property="og:description"
-      content="季節の料理と新潟の地酒を、荻窪で静かに味わう。"
+      content="旬の魚、炭火の料理と日本酒を、荻窪で。"
+    />
+    <meta
+      property="og:url"
+      content="https://local-store-web.github.io/tomisho-hp/"
     />
     <meta
       property="og:image"
-      content="https://toraikura.github.io/tomisho-hp/assets/images/hero-sashimi.jpg"
+      content="https://local-store-web.github.io/tomisho-hp/assets/images/hero-sashimi.jpg"
     />
-    <meta property="og:locale" content="ja_JP" />
-    <link rel="canonical" href="https://toraikura.github.io/tomisho-hp/" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link
+      rel="preload"
+      as="image"
+      href="./assets/optimized/hero-sashimi.webp"
+      type="image/webp"
+      fetchpriority="high"
+    />
     <link rel="stylesheet" href="./styles.css" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Restaurant",
+        "name": "旬ものと日本酒 とみ笑",
+        "url": "https://local-store-web.github.io/tomisho-hp/",
+        "telephone": "+81-3-3392-7002",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "上荻1-4-1",
+          "addressLocality": "杉並区",
+          "addressRegion": "東京都",
+          "addressCountry": "JP"
+        },
+        "servesCuisine": "和食",
+        "image": "https://local-store-web.github.io/tomisho-hp/assets/images/hero-sashimi.jpg",
+        "sameAs": ["https://www.instagram.com/tomisho0520/"]
+      }
+    </script>
+    <script src="./script.js" defer></script>
   </head>
-  <body>
+  <body id="top">
     <a class="skip-link" href="#main">本文へ移動</a>
-
-    <header class="site-header" aria-label="サイトヘッダー">
-      <a class="site-logo" href="#hero" aria-label="とみ笑 トップへ">
-        <img src="./assets/images/logo-tomisho.png" alt="" />
-        <span class="sr-only">旬ものと日本酒 とみ笑</span>
-      </a>
-      <nav class="site-nav" aria-label="ページ内ナビゲーション">
-        <a href="#about">店のこと</a>
-        <a href="#menu">料理と酒</a>
-        <a href="#access">店舗情報</a>
-      </nav>
-      <a class="header-phone" href="tel:0333927002">03-3392-7002</a>
+    <header class="site-header">
+      <div class="header-inner shell">
+        <a class="brand" href="#top" aria-label="旬ものと日本酒 とみ笑 トップへ"
+          ><span class="brand-mark" aria-hidden="true"
+            >とみ笑<span class="brand-dot">。</span></span
+          ><span class="brand-meta"
+            >旬ものと日本酒<br /><span>OGIKUBO · TOKYO</span></span
+          ></a
+        >
+        <nav class="desktop-nav" aria-label="メインナビゲーション">
+          <a href="#menu">お料理</a><a href="#about">店のこと</a
+          ><a href="#story">料理人とカウンター</a><a href="#access">アクセス</a
+          ><a href="#news">お知らせ</a>
+        </nav>
+        <a class="header-reserve" href="tel:0333927002"
+          >電話で予約 <span aria-hidden="true">↗</span></a
+        >
+        <details class="mobile-menu">
+          <summary aria-label="メニュー">
+            <span></span><span></span>
+          </summary>
+          <nav aria-label="モバイルナビゲーション">
+            <a href="#menu">お料理</a><a href="#about">店のこと</a
+            ><a href="#story">料理人とカウンター</a
+            ><a href="#access">アクセス</a><a href="#news">お知らせ</a
+            ><a href="#reservation">ご予約</a>
+          </nav>
+        </details>
+      </div>
     </header>
-
     <main id="main">
-      <section class="hero" id="hero" aria-labelledby="hero-title">
+      <section class="hero shell" aria-labelledby="hero-heading">
         <div class="hero-copy">
-          <p class="kicker">旬ものと日本酒</p>
-          <h1 id="hero-title">季節の料理と新潟の地酒を、荻窪で静かに味わう。</h1>
-          <p class="lead">
-            旬の食材を使った一皿と、料理に寄り添う日本酒。少人数の食事や会食に使いやすい、落ち着いた和食店です。
+          <p class="eyebrow"><span></span> TOKYO / OGIKUBO</p>
+          <h1 id="hero-heading">荻窪で、<br />今夜の<span>旬</span>を。</h1>
+          <p class="hero-lead">
+            魚も、肉も、野菜も。その日の素材を、炭火と一皿に。<br
+              class="desktop-break"
+            />日本酒を傍らに、気負わない和食の夜をどうぞ。
           </p>
-          <div class="button-row" aria-label="予約と店舗情報">
-            <a
-              class="button button-secondary"
-              href="https://www.instagram.com/tomisho0520/"
-              target="_blank"
-              rel="noreferrer"
+          <div class="hero-actions">
+            <a class="button button-primary" href="tel:0333927002"
+              >電話で予約する <span aria-hidden="true">↗</span></a
+            ><a class="text-link" href="#menu"
+              >お料理を見る <span aria-hidden="true">→</span></a
             >
-              Instagram
-            </a>
-            <a class="button button-primary" href="tel:0333927002">電話で予約</a>
-            <a class="button button-secondary" href="#access">店舗情報</a>
+          </div>
+          <div class="hero-facts">
+            <div>
+              <span class="fact-label">ACCESS</span
+              ><span>荻窪駅北口 徒歩4分</span>
+            </div>
+            <div>
+              <span class="fact-label">OPEN</span><span>営業日 18:00から</span>
+            </div>
           </div>
         </div>
-
-        <div class="hero-media" aria-label="店舗ビジュアルエリア">
-          <div class="photo-slot photo-slot-large">
+        <div class="hero-visual">
+          <img
+            src="./assets/optimized/hero-sashimi.webp"
+            alt="刺身盛りを中心とした、とみ笑の料理"
+            width="960"
+            height="1193"
+            fetchpriority="high"
+          />
+          <div class="hero-visual-caption">
+            <span>SEASONAL JAPANESE TABLE</span><span>TOMISHO / OGIKUBO</span>
+          </div>
+        </div>
+        <div class="hero-side-note" aria-hidden="true">
+          SHUNMONO TO NIHONSHU · TOMISHO
+        </div>
+      </section>
+      <div class="intro-band">
+        <div class="shell intro-band-inner">
+          <p>街になじむ一軒で、<br />旬を味わう時間を。</p>
+          <a href="#about">店のこと <span aria-hidden="true">↘</span></a>
+        </div>
+      </div>
+      <section
+        class="section shell menu-section"
+        id="menu"
+        aria-labelledby="menu-heading"
+      >
+        <div class="section-head">
+          <div>
+            <p class="section-index">01 / MENU</p>
+            <h2 id="menu-heading">お料理と日本酒</h2>
+          </div>
+          <p class="section-description">
+            季節や仕入れによって、料理の内容は変わります。<br />その日の一皿との出会いをお楽しみください。
+          </p>
+        </div>
+        <div class="menu-grid">
+          <article class="menu-feature menu-feature-large">
+            <div class="menu-image">
+              <img
+                src="./assets/optimized/seasonal-sashimi.webp"
+                alt="貝や魚を盛り合わせた季節の刺身"
+                width="760"
+                height="948"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+            <div class="menu-copy">
+              <span>01 / SEASONAL</span>
+              <h3>旬の魚</h3>
+              <p>季節の表情が見える、魚の一皿。</p>
+            </div>
+          </article>
+          <article class="menu-feature">
+            <div class="menu-image">
+              <img
+                src="./assets/optimized/grilled-fish.webp"
+                alt="焼き魚の一皿"
+                width="720"
+                height="523"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+            <div class="menu-copy">
+              <span>02 / CHARCOAL</span>
+              <h3>炭火の料理</h3>
+              <p>素材の香りを引き出す火入れ。</p>
+            </div>
+          </article>
+          <article class="menu-feature">
+            <div class="menu-image">
+              <img
+                src="./assets/optimized/uni-bite.webp"
+                alt="雲丹と海苔の一口料理"
+                width="700"
+                height="682"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+            <div class="menu-copy">
+              <span>03 / SAKE &amp; DISH</span>
+              <h3>酒に寄り添う一品</h3>
+              <p>日本酒と、もうひと皿。</p>
+            </div>
+          </article>
+        </div>
+        <p class="menu-note">
+          ※ 写真は料理の一例です。内容・価格はお電話でお尋ねください。
+        </p>
+      </section>
+      <section class="about-section" id="about" aria-labelledby="about-heading">
+        <div class="shell about-layout">
+          <div class="about-image">
             <img
-              src="./assets/images/hero-sashimi.jpg"
-              alt="とみ笑の刺身盛りと季節料理"
+              src="./assets/optimized/sashimi-plate.webp"
+              alt="器に盛られた刺身の一皿"
+              width="900"
+              height="770"
+              loading="lazy"
+              decoding="async"
             />
           </div>
+          <div class="about-copy">
+            <p class="section-index">02 / ABOUT</p>
+            <h2 id="about-heading">
+              肩の力を抜いて、<br />料理にはまっすぐに。
+            </h2>
+            <p>
+              荻窪で旬の料理と日本酒を楽しめる、とみ笑。カウンターを中心に、料理をつくる手がすぐそばにある距離感を大切にしています。
+            </p>
+            <p>炭火の香り、器に盛られる一皿。その日の味を、ゆっくりと。</p>
+            <a class="light-link" href="#story"
+              >料理人とカウンター <span aria-hidden="true">→</span></a
+            >
+          </div>
         </div>
       </section>
-
-      <section class="section about reveal" id="about" aria-labelledby="about-title">
-        <div class="section-title">
-          <h2 id="about-title">旬ものを、気負わずに。</h2>
-          <p>
-            派手な演出よりも、素材と酒の相性を大切に。季節の流れを感じる料理を、落ち着いた席で楽しめます。
-          </p>
+      <section
+        class="section shell story-section"
+        id="story"
+        aria-labelledby="story-heading"
+      >
+        <div class="section-head">
+          <div>
+            <p class="section-index">03 / STORY</p>
+            <h2 id="story-heading">料理人とカウンター</h2>
+          </div>
         </div>
-        <div class="feature-grid">
-          <article class="feature-card">
-            <h3>季節の料理</h3>
-            <p>旬の食材を中心に、<br class="mobile-break" />その日の一皿を組み立てます。</p>
-          </article>
-          <article class="feature-card">
-            <h3>新潟の地酒</h3>
-            <p>料理と合わせて楽しめる<br class="mobile-break" />日本酒を用意しています。</p>
-          </article>
-          <article class="feature-card">
-            <h3>落ち着いた時間</h3>
-            <p>少人数の食事や会食に向いた、<br class="mobile-break" />静かな夜の場所です。</p>
-          </article>
-        </div>
-      </section>
-
-      <section class="section menu reveal" id="menu" aria-labelledby="menu-title">
-        <div class="section-title">
-          <h2 id="menu-title">料理と酒</h2>
-          <p>
-            内容は季節や仕入れによって変わります。予約時に希望がある場合は電話でご相談ください。
-          </p>
-        </div>
-        <div class="menu-list">
-          <article class="menu-item">
-            <div class="photo-slot menu-photo">
-              <img
-                src="./assets/images/seasonal-sashimi.jpg"
-                alt="貝と刺身を盛り合わせた季節料理"
-              />
-            </div>
-            <div>
-              <h3>季節の一皿</h3>
-              <p>野菜、魚、肉を季節に合わせて。食事の始まりから締めまで楽しめる構成です。</p>
-            </div>
-          </article>
-          <article class="menu-item">
-            <div class="photo-slot menu-photo menu-photo-fish">
-              <img
-                src="./assets/images/grilled-fish.jpg"
-                alt="焼き魚の一皿"
-              />
-            </div>
-            <div>
-              <h3>魚料理</h3>
-              <p>刺身や焼き物など、魚の味わいを活かした料理を楽しめます。</p>
-            </div>
-          </article>
-          <article class="menu-item">
-            <div class="photo-slot menu-photo">
-              <img
-                src="./assets/images/uni-bite.jpg"
-                alt="雲丹と海苔を合わせた一口料理"
-              />
-            </div>
-            <div>
-              <h3>酒に合う逸品</h3>
-              <p>日本酒と合わせて少しずつ楽しめる、香りと余韻のある一品も。</p>
-            </div>
-          </article>
-        </div>
-      </section>
-
-      <section class="section access reveal" id="access" aria-labelledby="access-title">
-        <div class="section-title">
-          <h2 id="access-title">店舗情報</h2>
-          <p>営業時間や定休日は変更される場合があります。来店前に電話で確認すると確実です。</p>
-        </div>
-        <div class="access-grid">
-          <div class="map-panel">
-            <div class="map-frame">
-              <iframe
-                title="とみ笑のGoogleマップ"
-                src="https://www.google.com/maps?q=%E6%9D%B1%E4%BA%AC%E9%83%BD%E6%9D%89%E4%B8%A6%E5%8C%BA%E4%B8%8A%E8%8D%BB1-4-1&output=embed"
-                loading="lazy"
-                referrerpolicy="no-referrer-when-downgrade"
-              ></iframe>
-              <a
-                class="map-open"
-                href="https://maps.app.goo.gl/iLLxTrVXeHte9asE9"
-                target="_blank"
-                rel="noreferrer"
-              >
-                Googleマップで開く
-              </a>
+        <div class="story-layout">
+          <div class="story-copy">
+            <p class="story-large">
+              一皿ができるまでの<br />時間も、味わいのうち。
+            </p>
+            <p>
+              カウンター越しに料理が仕上がる気配。素材のこと、酒のことを交わしながら、自然体で過ごせる夜があります。
+            </p>
+            <div class="story-rule"></div>
+            <p class="story-small">近い距離で味わう、旬のひととき。</p>
+          </div>
+          <div class="story-visual" aria-hidden="true">
+            <div class="story-visual-inner">
+              <span class="story-kana">旬</span
+              ><span class="story-visual-label">A SEAT AT THE COUNTER</span>
             </div>
           </div>
-          <div class="info-panel">
-            <dl class="info-list">
+        </div>
+      </section>
+      <section
+        class="section shell access-section"
+        id="access"
+        aria-labelledby="access-heading"
+      >
+        <div class="section-head">
+          <div>
+            <p class="section-index">04 / ACCESS</p>
+            <h2 id="access-heading">店舗情報</h2>
+          </div>
+          <p class="section-description">
+            荻窪駅北口から徒歩4分。<br />ご来店前のご確認・ご予約はお電話で。
+          </p>
+        </div>
+        <div class="access-layout">
+          <div class="access-info">
+            <dl>
+              <div>
+                <dt>店名</dt>
+                <dd>旬ものと日本酒 とみ笑</dd>
+              </div>
               <div>
                 <dt>住所</dt>
                 <dd>東京都杉並区上荻1-4-1</dd>
               </div>
               <div>
-                <dt>最寄駅</dt>
-                <dd>荻窪駅北口徒歩4分</dd>
+                <dt>アクセス</dt>
+                <dd>荻窪駅北口 徒歩4分</dd>
               </div>
               <div>
                 <dt>営業時間</dt>
-                <dd>火-木 18:00-24:00 / 金土祝祝前 18:00-26:00</dd>
+                <dd>
+                  <span>火–木　18:00–24:00</span
+                  ><span>金・土・祝日・祝前日　18:00–26:00</span>
+                </dd>
               </div>
               <div>
                 <dt>定休日</dt>
                 <dd>日・月</dd>
               </div>
               <div>
-                <dt>電話番号</dt>
-                <dd><a href="tel:0333927002">03-3392-7002</a></dd>
+                <dt>電話</dt>
+                <dd><a href="tel:0333927002">03&#8209;3392&#8209;7002</a></dd>
               </div>
             </dl>
-            <div class="button-row access-actions">
-              <a
-                class="button button-secondary"
-                href="https://www.instagram.com/tomisho0520/"
-                target="_blank"
-                rel="noreferrer"
-              >
-                Instagram
-              </a>
-              <a class="button button-primary" href="tel:0333927002">電話で予約</a>
-              <a
-                class="button button-secondary"
-                href="https://maps.app.goo.gl/iLLxTrVXeHte9asE9"
-                target="_blank"
-                rel="noreferrer"
-              >
-                地図を見る
-              </a>
-            </div>
+            <p class="hours-note">
+              ※
+              営業時間や休業日は変更となる場合があります。来店前にお電話でご確認ください。
+            </p>
+          </div>
+          <div class="access-graphic">
+            <span class="map-overline">ACCESS INFORMATION</span
+            ><span class="map-station">荻窪駅<span>北口</span></span
+            ><span class="map-place"
+              ><span class="map-pin" aria-hidden="true"></span> とみ笑</span
+            ><span class="map-walk">徒歩4分</span
+            ><a
+              href="https://www.google.com/maps/search/?api=1&amp;query=%E6%9D%B1%E4%BA%AC%E9%83%BD%E6%9D%89%E4%B8%A6%E5%8C%BA%E4%B8%8A%E8%8D%BB1-4-1"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Googleマップで見る <span aria-hidden="true">↗</span></a
+            >
           </div>
         </div>
       </section>
-
-      <section class="section gallery reveal" id="gallery" aria-label="料理ギャラリー">
-        <div class="gallery-grid">
-          <div class="photo-slot gallery-tall">
-            <img
-              src="./assets/images/sashimi-plate.jpg"
-              alt="刺身盛り合わせ"
-            />
+      <section
+        class="reservation-section"
+        id="reservation"
+        aria-labelledby="reservation-heading"
+      >
+        <div class="shell reservation-inner">
+          <div>
+            <p class="section-index">05 / RESERVATION</p>
+            <h2 id="reservation-heading">今夜の席は、<br />お電話で。</h2>
+            <p>ご予約・空席状況の確認は、お電話で承ります。</p>
           </div>
-          <div class="photo-slot">
-            <img
-              src="./assets/images/oyster.jpg"
-              alt="牡蠣の一皿"
-            />
+          <div class="reservation-action">
+            <a href="tel:0333927002"
+              ><span>電話をかける <span aria-hidden="true">↗</span></span
+              ><strong>03&#8209;3392&#8209;7002</strong></a
+            ><small>日・月 定休</small>
           </div>
-          <div class="photo-slot">
-            <img
-              src="./assets/images/skewer.jpg"
-              alt="串焼き"
-            />
-          </div>
-          <div class="photo-slot gallery-wide">
-            <img
-              src="./assets/images/grilled-fish.jpg"
-              alt="焼き魚"
-            />
-          </div>
+        </div>
+      </section>
+      <section
+        class="section shell news-section"
+        id="news"
+        aria-labelledby="news-heading"
+      >
+        <div>
+          <p class="section-index">06 / NEWS</p>
+          <h2 id="news-heading">お知らせ</h2>
+        </div>
+        <div class="news-body">
+          <p>
+            Instagram
+            の投稿はこちらから。営業時間など、ご来店に関することはお電話でもご確認ください。
+          </p>
+          <a
+            class="text-link"
+            href="https://www.instagram.com/tomisho0520/"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Instagramを見る <span aria-hidden="true">↗</span></a
+          >
         </div>
       </section>
     </main>
-
     <footer class="site-footer">
-      <p>旬ものと日本酒 とみ笑</p>
-      <p><a href="tel:0333927002">03-3392-7002</a></p>
+      <div class="shell footer-main">
+        <div>
+          <a class="footer-brand" href="#top">とみ笑<span>。</span></a>
+          <p>旬ものと日本酒<br />東京都杉並区上荻1-4-1</p>
+        </div>
+        <nav aria-label="フッターナビゲーション">
+          <a href="#menu">お料理</a><a href="#about">店のこと</a
+          ><a href="#story">料理人とカウンター</a><a href="#access">アクセス</a
+          ><a href="#reservation">ご予約</a><a href="#news">お知らせ</a>
+        </nav>
+        <div class="footer-contact">
+          <a href="tel:0333927002">03&#8209;3392&#8209;7002</a
+          ><a
+            href="https://www.instagram.com/tomisho0520/"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Instagram ↗</a
+          >
+        </div>
+      </div>
+      <div class="shell footer-bottom">
+        <small>© 旬ものと日本酒 とみ笑</small
+        ><a href="#top">ページの先頭へ ↑</a>
+      </div>
     </footer>
-
-    <div class="sticky-actions" aria-label="固定予約導線">
-      <a
-        class="sticky-action"
-        href="https://www.instagram.com/tomisho0520/"
+    <div class="mobile-sticky">
+      <a href="tel:0333927002"
+        ><span>電話で予約</span><span aria-hidden="true">↗</span></a
+      ><a
+        href="https://www.google.com/maps/search/?api=1&amp;query=%E6%9D%B1%E4%BA%AC%E9%83%BD%E6%9D%89%E4%B8%A6%E5%8C%BA%E4%B8%8A%E8%8D%BB1-4-1"
         target="_blank"
-        rel="noreferrer"
+        rel="noopener noreferrer"
+        ><span>アクセス</span><span aria-hidden="true">↗</span></a
       >
-        <span>インスタグラムで予約</span>
-      </a>
-      <a class="sticky-action" href="tel:0333927002">
-        <span>電話で予約</span>
-        <small>03-3392-7002</small>
-      </a>
     </div>
-
-    <script src="./script.js"></script>
   </body>
 </html>

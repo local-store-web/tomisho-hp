@@ -1,20 +1,19 @@
-const revealTargets = document.querySelectorAll(".reveal");
-
-if (!("IntersectionObserver" in window)) {
-  revealTargets.forEach((element) => element.classList.add("is-visible"));
-} else {
-  const observer = new IntersectionObserver(
-    (entries) => {
-      for (const entry of entries) {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("is-visible");
-          observer.unobserve(entry.target);
-        }
-      }
-    },
-    { threshold: 0.14 }
+// Keep the native <details> menu keyboard-friendly while closing it after navigation.
+const mobileMenu = document.querySelector(".mobile-menu");
+if (mobileMenu) {
+  mobileMenu.querySelectorAll("a").forEach((link) =>
+    link.addEventListener("click", () => {
+      mobileMenu.open = false;
+    }),
   );
-
-  revealTargets.forEach((element) => observer.observe(element));
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && mobileMenu.open) {
+      mobileMenu.open = false;
+      mobileMenu.querySelector("summary").focus();
+    }
+  });
+  document.addEventListener("click", (event) => {
+    if (mobileMenu.open && !mobileMenu.contains(event.target))
+      mobileMenu.open = false;
+  });
 }
-
