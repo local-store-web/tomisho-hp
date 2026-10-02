@@ -37,7 +37,7 @@ node --check qa/verify_browser.cjs
 git diff --check
 ```
 
-実ブラウザ環境で Playwright を利用できる場合:
+Playwright と Chromium を利用できる環境で:
 
 ```sh
 node qa/verify_browser.cjs
@@ -45,11 +45,11 @@ node qa/verify_browser.cjs
 
 必要なら `CHROMIUM_PATH` に承認済みの Chromium 実行ファイルを指定できます。QA 用パッケージはサイトの依存にはなりません。`axe-core` が利用可能な環境では同ハーネスが WCAG 2/2.1 A/AA の自動検査も行います。
 
-360 / 390 / 768 / 1440 px、各幅の first view / full page、mobile navigation、JS 無効、reduced motion、画像・console・横はみ出し・touch target・focus を検査し、`qa/evidence/` に結果と PNG を出力します。スクリーンショット生成後も人による画面確認が必要です。
+360 / 390 / 768 / 1440 px、各幅の first view / full page / 店舗情報、mobile navigation / 予約、JS 無効、reduced motion、画像・console・横はみ出し・touch target・focus を検査し、`qa/evidence/` に結果と PNG を出力します。スクリーンショット生成後は人による画面確認も行います。
 
 ### 現在の確認状況
 
-ソース検査は PASS。作業環境のブラウザ実行制限により、このコミット時点では実画面の検証・スクリーンショット・Lighthouse は未実施です。実行環境が準備でき次第、ハーネスを実行し、画面の問題を修正してから再検証してください。ソース上の responsive 対応は、実機確認済みという意味ではありません。
+ソース検査と Linux headless Chromium 実画面検証は PASS。4 幅のスクリーンショットを目視し、axe-core 4.10.3 の WCAG 2 / 2.1 A・AA 自動検査は violation 0。Lighthouse、実機 Safari / Android、VoiceOver / TalkBack、外部リンクの最終遷移先は未検証です。詳細は [検証レポート](docs/TYPE-B-REPORT.md) を参照してください。
 
 ## 公開について
 

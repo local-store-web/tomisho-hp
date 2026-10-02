@@ -1,6 +1,6 @@
 # TYPE B — Brand LP 制作・検証レポート
 
-更新: 2026-10-02 / ソース確認済みチェックポイント。実画面レビューは未完了。
+更新: 2026-10-02 / Chromium 実画面レビュー済み。QA evidence は Library に保存。
 
 ## 1. Branch と独立性
 
@@ -59,7 +59,7 @@ QA ハーネスだけ Playwright を使用可能。任意で axe-core。両方�
 - Favicon / image dimensions / loading priority / alt / focus / reduced motion / preview noindex を追加
 - 本番設定を変える旧 README 手順を R&D 用の説明に置き換え
 
-## 9. Deterministic verification
+## 9. Verification
 
 実施済み:
 
@@ -67,23 +67,27 @@ QA ハーネスだけ Playwright を使用可能。任意で axe-core。両方�
 - `node --check script.js`: PASS
 - `node --check qa/verify_browser.cjs`: PASS
 - `git diff --check`: PASS
+- Chromium で 360 / 390 / 768 / 1440px の first view、full page、店舗情報を撮影・目視確認。mobile は menu open、予約部分も撮影
+- 各幅で横はみ出し、44px 未満の操作領域、可視画像の破損、console / page error、HTTP error が 0
+- mobile menu の連続クリック、Escape 閉鎖と focus 復帰、anchor 遷移後の focus、skip link、固定 CTA による電話・footer link の遮蔽を検査。いずれも PASS
+- JS 無効で全文・可視画像・電話リンクを確認。reduced motion で smooth scroll / 到着アニメーションなし
+- axe-core 4.10.3、WCAG 2 / 2.1 A・AA の自動検査: 全4幅で violation 0
 - 使用した全既存画像を contact sheet / 元画像で目視確認
 - 8 個の WebP 派生の寸法を実ファイルで確認
 - 独立したソースレビューで alt の未確認表現、360px CTA overlap リスク、本文の小ささを発見し修正
 
 未実施:
 
-- Chromium の実行、console / runtime、スクリーンショット、実 viewport での overflow / clipping / focus の確認
-- axe-core / Lighthouse / 実機 Safari / VoiceOver
+- Lighthouse / 実機 Safari / VoiceOver
 - 外部 Instagram / Maps の最終遷移先の動作確認
 
-環境上のブラウザ実行制限があり、別の実行環境で `qa/verify_browser.cjs` を実行する必要がある。ソース検査を実画面テストの代わりと表現しない。
+検証環境は Linux headless Chromium。外部リンクを実際に開くテストと電話発信は行っていない。スクリーンショットと `browser-results.json` は `qa/evidence/` に生成し、共有用 ZIP `type-b-browser-qa-2026-10-02.zip` を Library に保存した（Library file ID: `libfile_a723927be14881919d97b594c77830ae`）。
 
 ## 10. Responsive
 
 360 / 390 / 768 / 1440px を対象に breakpoint と viewport 対応を実装。700px 以下は別構成の縦読み、native flow の Hero CTA、disclosure navigation、固定の電話・店舗情報バー。safe-area と fixed bar 分の本文余白を設けた。
 
-768px 付近は独立の tablet 調整。写真の比率・位置を width ごとに指定し、見出しは明示改行。`qa/verify_browser.cjs` が各幅の PNG と実測チェックを生成する。現在は実測結果未取得。
+768px 付近は独立の tablet 調整。写真の比率・位置を width ごとに指定し、見出しは明示改行。`qa/verify_browser.cjs` の実測では全4幅で document scrollWidth = viewport width、可視要素の横はみ出し 0。360 / 390px の予約電話・店舗電話・先頭リンクは固定バーに遮られず、実スクリーンショットでも確認した。
 
 ## 11. Accessibility
 
@@ -97,7 +101,7 @@ QA ハーネスだけ Playwright を使用可能。任意で axe-core。両方�
 - JS 無効でも全コピー・画像・電話・地図リンクが利用可能
 - モーション前は可視。JS が失敗しても reveal のせいで非表示にならない
 
-これらは実装・ソース検査済みであり、支援技術での確認済みという意味ではない。
+これらは Chromium のキーボード操作、JS 無効、reduced motion、axe-core でも確認した。スクリーンリーダーや実機の支援技術での確認済みという意味ではない。
 
 ## 12. Performance
 
@@ -106,19 +110,19 @@ QA ハーネスだけ Playwright を使用可能。任意で axe-core。両方�
 - 最大1280px WebP の料理4枚合計は約571KB、640px版4枚合計は約265KB。元画像4枚合計は約1.615MB
 - 外部 map iframe / font / video / canvas は読み込まない
 - animation は opacity / transform、scroll handler は passive + requestAnimationFrame
-- 実測 LCP / CLS / INP / Lighthouse score は未取得。数値を推測して採点しない
+- ローカル Chromium の cold page、headless、4幅の LCP は 168–184ms、CLS 0、load event は 139–166ms。ネットワーク・CPU throttle なしの localhost lab 値であり、実ユーザー速度ではない。INP / Lighthouse score は未取得
+- ページ全体をスクロールして画像を読み込んだ後の Resource Timing transferSize 合計は 360–768px で約361KB、1440px で約685KB。上の静的画像見積りより小さい幅では小さな WebP が選ばれ、1440px では大きな WebP が選ばれる。localhost 転送値なので公開環境での実転送量とは区別する
 
 ## 13. Unresolved issues
 
-1. 最優先: 別の browser-capable 環境で全4幅を実表示し、round 3 の視覚修正・再検証を行う
-2. 店内・店主・炭火・日本酒の実写不足。抽象表現は意図的だが、本番撮影で説得力が増す
-3. 営業時間・休業日・写真・Maps は既存 repo 情報。店舗本人の最終確認が必要
-4. 系統フォントのため OS ごとに和文字面が異なる。macOS / iOS / Android で改行を最終確認
-5. ローカルソースの完成は、本番公開・受賞水準の達成を保証するものではない
+1. 店内・店主・炭火・日本酒の実写不足。抽象表現は意図的だが、本番撮影で説得力が増す
+2. 営業時間・休業日・写真・Maps は既存 repo 情報。店舗本人の最終確認が必要。祝日と定休日の優先関係は未確認
+3. 系統フォントのため OS ごとに和文字面が異なる。macOS / iOS / Android で改行を最終確認
+4. ローカルの Chromium 合格は、本番公開・受賞水準の達成を保証するものではない
 
 ## 14. Production 化前
 
-- 実画面 / 実機 / keyboard / reduced motion / no-JS / axe / Lighthouse を最終実施
+- 実機 Safari / Android、VoiceOver / TalkBack、Lighthouse を最終実施
 - 写真の使用権・料理表記・営業情報・予約方法を店舗確認
 - 公開先と canonical / OGP の整合を個別承認後に確定し、preview noindex を本番対象だけ外す
 - 店内・料理人の実写に置換した場合、alt / crops / image budgets を再検証
@@ -130,7 +134,7 @@ QA ハーネスだけ Playwright を使用可能。任意で axe-core。両方�
 |---|---|---|---|
 | 1 IA / implementation | 元の情報カード型ではこの案の物語が伝わらない | 10要素を奥へ進む7章とHero/予約へ再構成 | ソースと全 section ID 確認。実表示は未実施 |
 | 2 typography / clarity | 360px Hero CTA の絶対配置 overlap リスク、本文10px、alt の未確認カウンター表記 | CTAを通常フロー化、実用本文12px、altを卓上表記へ修正 | 独立 reviewer とソース検査で再確認。実表示は未実施 |
-| 3 actual visual / accessibility / performance | 実行環境がブラウザを起動できない | 自動検査・スクリーンショット harness を同梱 | 別環境で実行待ち。未完了 |
+| 3 actual visual / accessibility / performance | 可視でない lazy logo が画像破損と誤検知。大きな装飾文字の contrast は 1.38:1。営業時間の省略表記が分かりにくい | harness は可視画像だけ評価し、smooth scroll を切って全域 traversal。装飾文字を 3.25:1 に、営業時間を明示表記に修正 | 全4幅で first view / full page / access を目視し、overflow・menu・focus・no-JS・reduced motion・axe を再実行して PASS |
 
 ## 撮影優先順位（TYPE B）
 
