@@ -955,6 +955,9 @@ h1 span {
   .hero-copy {
     padding-top: 70px;
   }
+  .desktop-break {
+    display: none;
+  }
   .hero-visual {
     min-height: 520px;
   }
@@ -993,6 +996,12 @@ h1 span {
   }
   .footer-main {
     gap: 30px;
+  }
+}
+@media (min-width: 701px) and (max-width: 900px) {
+  .hero-lead {
+    font-size: 14px;
+    letter-spacing: 0.02em;
   }
 }
 @media (max-width: 700px) {
@@ -1045,9 +1054,6 @@ h1 span {
     margin-top: 20px;
     font-size: 13px;
     line-height: 2;
-  }
-  .desktop-break {
-    display: none;
   }
   .hero-actions {
     gap: 15px;
@@ -1290,6 +1296,9 @@ h1 span {
 @media (max-width: 380px) {
   .shell {
     width: calc(100% - 32px);
+  }
+  .hero {
+    width: 100%;
   }
   .hero-copy {
     width: calc(100% - 32px);
