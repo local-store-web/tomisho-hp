@@ -1,0 +1,26 @@
+{
+  "status": "PASS",
+  "errors": [],
+  "anchors_and_assets_checked": 40,
+  "images": 5,
+  "headings": [
+    1,
+    2,
+    2,
+    2,
+    2,
+    3,
+    2,
+    2,
+    2,
+    3,
+    2
+  ],
+  "script_syntax": true,
+  "source_bytes": {
+    "index.html": 13993,
+    "styles.css": 29984,
+    "script.js": 2537
+  },
+  "scope": "Source checks only. Browser layout, runtime, external destinations, and assistive technology are separate checks."
+}
