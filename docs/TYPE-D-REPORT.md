@@ -70,9 +70,9 @@
 
 各幅で水平 overflow なし、全写真ロード成功、console / page error / failed request なし、可視のリンク・ボタンは 44px 以上、h1 は 1 個。画像を目視し、desktop の横料理列、mobile の縦料理列、章の余白、写真の切り抜き、ヘッダー、固定下部 CTA と footer 余白を確認。PC は送りボタンとフォーカス後の右矢印キー、mobile は固定 CTA から店舗案内、footer から先頭への反復遷移を確認。skip link の Tab / Enter と focus outline も確認。
 
-Canvas は停止・再開、hidden tab 時の停止・復帰を animation-frame 計数で確認。context 不可、save-data、低メモリー時は動作ボタンが現れず本文が表示される。reduced-motion 時は演出ボタン非表示で通常コンテンツとナビが使え、JS 無効でも全文・電話リンクを利用可能。tel / Instagram / Maps の宛先はソースで照合し、実際に発信・外部ページ遷移はしていない。
+Canvas は停止・再開を animation-frame 計数で確認。`document.hidden` と `visibilitychange` をブラウザ内で模擬して停止・復帰するコード経路も確認した。headless Chromium では実際にタブを背面へ移しても `document.hidden` が変わらなかったため、実タブ非表示の端末検証は未実施。context 不可、save-data、低メモリー時は動作ボタンが現れず本文が表示される。reduced-motion 時は演出ボタン非表示で通常コンテンツとナビが使え、JS 無効でも全文・電話リンクを利用可能。tel / Instagram / Maps の宛先はソースで照合し、実際に発信・外部ページ遷移はしていない。
 
-未実施: 実機 iOS / Android、スクリーンリーダー、Lighthouse、CLS / Core Web Vitals の計測、実回線での速度評価。Playwright の desktop/mobile viewport は端末そのものの保証ではない。
+未実施: 実機 iOS / Android、実際のタブ背面化、スクリーンリーダー、Lighthouse、CLS / Core Web Vitals の計測、実回線での速度評価。Playwright の desktop/mobile viewport は端末そのものの保証ではない。
 
 ## 8. Purposeful review loop
 

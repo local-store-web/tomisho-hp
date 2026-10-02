@@ -116,7 +116,7 @@ const server = http.createServer((req, res) => {
     await motionPage.evaluate(() => { Object.defineProperty(document, 'hidden', { configurable: true, get: () => false }); document.dispatchEvent(new Event('visibilitychange')); });
     await motionPage.waitForTimeout(160);
     assert(await motionPage.evaluate(hidden => window.rafRequested > hidden, hiddenAt), 'Canvas did not resume after visibility');
-    report.canvasLifecycle = 'passed: stop, resume, hidden tab, visible tab';
+    report.canvasLifecycle = 'passed: stop, resume, simulated document.hidden / visibilitychange transitions';
     await motion.close();
     for (const fallback of ['missing-context', 'save-data', 'low-memory']) {
       const context = await browser.newContext({ viewport: { width: 390, height: 844 } });
