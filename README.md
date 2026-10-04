@@ -1,3 +1,12 @@
+# C1 — Clean / Restaurant Standard
+
+C案をさらに整理し、余白・情報の見つけやすさ・落ち着きを優先した案。
+
+- 店主を前面に出さない
+- 料理 / 営業情報 / 予約 / アクセスを最短で確認
+- 電話 + Instagram予約を常にセット
+- 元のC案より英字装飾を減らし、荻窪の和食店として自然な温度に寄せる
+
 # TYPE C — Standard Restaurant / とみ笑
 
 独立した静的HTML実装。`index.html`を直接開くか、作業ディレクトリで `python3 -m http.server 8000` を実行して確認できます。ライブラリ、ビルド、外部フォント、外部JavaScriptは不要です。
