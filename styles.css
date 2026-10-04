@@ -1446,3 +1446,54 @@ h1 span {
     padding: 14px 16px;
   }
 }
+
+/* C3 — Instagram-first: 奥さまのInstagram運用をそのまま“最新情報”にする案。 */
+.variant-c3-instagram {
+  --paper:#f6f3eb;
+  --deep:#1d342d;
+  --forest:#244d40;
+  --copper:#a45d3c;
+}
+.c3-instagram-section { padding:105px 0 35px; }
+.c3-instagram-head {
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:clamp(36px,7vw,110px);
+  align-items:end;
+  margin-bottom:36px;
+}
+.c3-instagram-head h2 {
+  font-family:"Yu Mincho","Hiragino Mincho ProN",serif;
+  font-size:clamp(38px,3.5vw,56px);
+  line-height:1.45;
+  letter-spacing:.06em;
+}
+.c3-instagram-copy p { color:var(--muted); font-size:13px; line-height:2; margin-bottom:20px; }
+.c3-instagram-preview {
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:14px;
+}
+.c3-instagram-preview a {
+  display:block;
+  aspect-ratio:1/1;
+  overflow:hidden;
+  background:#ddd3c2;
+  position:relative;
+}
+.c3-instagram-preview img {
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  transition:transform .45s cubic-bezier(.22,1,.36,1),filter .3s;
+}
+.c3-instagram-note { margin-top:14px; color:var(--muted); font-size:11px; }
+@media (hover:hover) and (pointer:fine) {
+  .c3-instagram-preview a:hover img { transform:scale(1.04); filter:brightness(.92); }
+}
+@media(max-width:700px) {
+  .c3-instagram-section { padding:70px 0 20px; }
+  .c3-instagram-head { grid-template-columns:1fr; gap:24px; }
+  .c3-instagram-preview { grid-template-columns:1fr 1fr; }
+  .c3-instagram-preview a:first-child { grid-column:1/-1; aspect-ratio:1.25/1; }
+}
