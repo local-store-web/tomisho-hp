@@ -255,6 +255,11 @@ h1 span {
   gap: 23px;
   margin-top: 38px;
 }
+.hero-reservation-pair {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
 .button {
   display: inline-flex;
   align-items: center;
@@ -274,6 +279,11 @@ h1 span {
 .button-primary {
   background: var(--forest);
   color: #fff;
+}
+.button-instagram {
+  background: transparent;
+  color: var(--forest);
+  border: 1px solid var(--forest);
 }
 .button span,
 .text-link span,
@@ -386,6 +396,10 @@ h1 span {
 }
 .intro-band a span {
   font-size: 21px;
+}
+.intro-band-inner > p > span {
+  display: block;
+  white-space: nowrap;
 }
 .section {
   padding-block: 125px;
@@ -757,6 +771,33 @@ h1 span {
 .reservation-section p:not(.section-index) {
   font-size: 13px;
   margin-top: 22px;
+}
+
+.reservation-options {
+  display: grid;
+  gap: 10px;
+}
+.reservation-action .reservation-phone,
+.reservation-action .reservation-instagram {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 8px 20px;
+  align-items: center;
+  min-height: 92px;
+  padding: 18px 24px;
+  border: 1px solid rgba(255,255,255,.28);
+  transition: background .22s,color .22s,border-color .22s,transform .22s;
+}
+.reservation-action .reservation-phone strong,
+.reservation-action .reservation-instagram strong {
+  font-size: clamp(20px,2.1vw,30px);
+  font-weight: 400;
+  letter-spacing: .03em;
+}
+.reservation-action .reservation-phone span,
+.reservation-action .reservation-instagram span {
+  font-size: 12px;
+  font-weight: 700;
 }
 .reservation-action {
   width: min(100%, 375px);
@@ -1355,5 +1396,53 @@ h1 span {
   *::after {
     animation-duration: 0.01ms !important;
     transition-duration: 0.01ms !important;
+  }
+}
+
+@media (hover:hover) and (pointer:fine) {
+  .button-primary:hover {
+    background: var(--copper);
+    color: #fff;
+  }
+  .button-instagram:hover {
+    background: var(--forest);
+    color: #fff;
+    border-color: var(--forest);
+    transform: translateY(-2px);
+  }
+  .header-reserve:hover {
+    background: var(--copper);
+    color: #fff;
+  }
+  .reservation-action .reservation-phone:hover,
+  .reservation-action .reservation-instagram:hover {
+    background: #fffdf8;
+    color: var(--deep);
+    border-color: #fffdf8;
+    transform: translateY(-2px);
+  }
+  .mobile-sticky a:hover {
+    background: var(--copper);
+    color: #fff;
+  }
+}
+
+@media (max-width:700px) {
+  .hero-reservation-pair {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+  .hero-reservation-pair .button {
+    width: 100%;
+  }
+  .intro-band-inner > p > span {
+    white-space: nowrap;
+  }
+  .reservation-action .reservation-phone,
+  .reservation-action .reservation-instagram {
+    min-height: 78px;
+    padding: 14px 16px;
   }
 }
