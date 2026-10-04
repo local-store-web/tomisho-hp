@@ -1446,3 +1446,30 @@ h1 span {
     padding: 14px 16px;
   }
 }
+
+/* C1 — Clean: 余白と情報の明快さを優先した、最も素直な完成形。 */
+.variant-c1-clean {
+  --paper:#f5f2e9;
+  --deep:#20352f;
+  --forest:#28463d;
+  --copper:#8a5a3d;
+  --line:rgba(28,43,38,.18);
+}
+.variant-c1-clean .hero { gap:clamp(28px,4vw,58px); }
+.variant-c1-clean .hero-copy { padding-top:clamp(54px,7vw,104px); }
+.variant-c1-clean .hero-visual { border:1px solid var(--line); }
+.variant-c1-clean .intro-band { background:#20352f; }
+.variant-c1-clean .section-index,
+.variant-c1-clean .fact-label,
+.variant-c1-clean .map-overline,
+.variant-c1-clean .story-visual-label,
+.variant-c1-clean .menu-copy>span,
+.variant-c1-clean .hero-visual-caption,
+.variant-c1-clean .eyebrow {
+  letter-spacing:.12em;
+}
+.variant-c1-clean .menu-feature:hover img { transform:scale(1.02); }
+@media (hover:hover) and (pointer:fine) {
+  .variant-c1-clean .text-link:hover,
+  .variant-c1-clean .light-link:hover { color:var(--copper); }
+}
