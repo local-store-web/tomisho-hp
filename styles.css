@@ -522,7 +522,11 @@ button,summary {
   letter-spacing: .16em;
 }
 
-.counter h2 span {
+.counter-line {
+  display: block;
+  white-space: nowrap;
+}
+.counter h2 .counter-line-accent {
   color: #d2b89e;
 }
 
@@ -939,11 +943,17 @@ button,summary {
   letter-spacing: .08em;
 }
 
+.reservation-options {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+  margin-top: 17px;
+}
 .reservation-phone {
   display: inline-flex;
   align-items: center;
   gap: 44px;
-  margin-top: 17px;
   min-height: 70px;
   border-bottom: 1px solid #65695e;
   padding-bottom: 8px;
@@ -957,6 +967,33 @@ button,summary {
 .reservation-arrow {
   font-family: var(--sans);
   font-size: 35px;
+}
+
+.reservation-instagram {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 22px;
+  min-height: 52px;
+  padding: 0 24px;
+  border: 1px solid #65695e;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .06em;
+  transition: background .22s,color .22s,border-color .22s;
+}
+
+@media (hover:hover) and (pointer:fine) {
+  .reservation-phone:hover,
+  .reservation-instagram:hover {
+    background: var(--ink);
+    color: var(--paper);
+    border-color: var(--ink);
+  }
+  .header-reservation:hover {
+    background: var(--paper);
+    color: var(--ink);
+  }
 }
 
 .reservation-note {
@@ -1366,9 +1403,13 @@ button,summary {
     padding-top: 9px;
   }
   .counter h2 {
-    font-size: 58px;
+    font-size: clamp(43px,12vw,52px);
     line-height: 1.35;
-    letter-spacing: .11em;
+    letter-spacing: .055em;
+    min-width: 0;
+  }
+  .counter-line {
+    white-space: nowrap;
   }
   .counter-note {
     grid-column: 2;
@@ -1727,7 +1768,7 @@ button,summary {
     font-size: 9px;
   }
   .counter h2 {
-    font-size: 52px;
+    font-size: 43px;
   }
   .access-details dl>div {
     grid-template-columns: 57px 1fr;
