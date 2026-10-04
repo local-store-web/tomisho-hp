@@ -1529,3 +1529,78 @@ button[hidden],[hidden] {
     padding:0 14px;
   }
 }
+
+/* Crop the existing official logo to the requested large Japanese 「とみ笑」 mark.
+   Invert + screen makes the white source background disappear on the dark header. */
+.wordmark {
+  position:relative;
+  flex:0 0 58px;
+  width:58px;
+  height:90px;
+  overflow:hidden;
+}
+.wordmark img {
+  position:absolute;
+  width:130px;
+  max-width:none;
+  height:auto;
+  left:-35px;
+  top:-16px;
+  filter:invert(1) grayscale(1);
+  mix-blend-mode:screen;
+}
+.wordmark::after {
+  content:"";
+  position:absolute;
+  z-index:2;
+  top:0;
+  right:0;
+  width:15px;
+  height:34px;
+  background:var(--ink);
+  pointer-events:none;
+}
+.footer-logo {
+  position:relative;
+  display:block;
+  width:78px;
+  height:122px;
+  overflow:hidden;
+}
+.footer-logo img {
+  position:absolute;
+  width:178px;
+  max-width:none;
+  height:auto;
+  left:-48px;
+  top:-22px;
+  filter:invert(1) grayscale(1);
+  mix-blend-mode:screen;
+}
+.footer-logo::after {
+  content:"";
+  position:absolute;
+  z-index:2;
+  top:0;
+  right:0;
+  width:20px;
+  height:45px;
+  background:var(--ink);
+  pointer-events:none;
+}
+@media(max-width:700px) {
+  .wordmark {
+    flex-basis:48px;
+    width:48px;
+    height:72px;
+  }
+  .wordmark img {
+    width:108px;
+    left:-29px;
+    top:-13px;
+  }
+  .wordmark::after {
+    width:13px;
+    height:28px;
+  }
+}
