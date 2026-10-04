@@ -1414,3 +1414,118 @@ button[hidden],[hidden] {
     letter-spacing:.015em
   }
 }
+
+/* Client refinement: real wordmark, charcoal photo, paired reservation paths. */
+.wordmark img {
+  display:block;
+  width:108px;
+  height:42px;
+  object-fit:contain;
+  object-position:left center;
+}
+.footer-logo {
+  width:120px;
+  height:62px;
+}
+.footer-logo img {
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  object-position:left center;
+}
+
+.charcoal-photo {
+  position:relative;
+  margin:0;
+  height:460px;
+  overflow:hidden;
+  background:#111915;
+  border:1px solid var(--line);
+}
+.charcoal-photo img {
+  display:block;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:50% 68%;
+  filter:brightness(.72) contrast(1.08) saturate(.78);
+  transform:scale(1.04);
+}
+.charcoal-photo:after {
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(180deg,transparent 58%,rgba(10,15,12,.64));
+  pointer-events:none;
+}
+.charcoal-photo figcaption {
+  position:absolute;
+  z-index:1;
+  left:22px;
+  bottom:18px;
+  font-size:10px;
+  letter-spacing:.12em;
+  color:#f0ece1;
+}
+
+.booking-options {
+  display:grid;
+  gap:10px;
+}
+.booking-instagram {
+  border-color:var(--line);
+}
+@media (hover:hover) and (pointer:fine) {
+  .site-header nav a {
+    transition:background .22s,color .22s,border-color .22s;
+  }
+  .site-header nav .reserve:hover {
+    background:var(--paper);
+    color:var(--ink);
+    border-color:var(--paper);
+  }
+  .site-header nav .reserve-instagram:hover {
+    background:var(--heat);
+    color:#172320;
+    border-color:var(--heat);
+  }
+  .booking-link:hover {
+    background:var(--paper);
+    color:var(--ink);
+    border-color:var(--paper);
+    padding-inline:18px;
+  }
+  .text-link:hover {
+    color:var(--heat);
+  }
+}
+
+@media(max-width:700px) {
+  .wordmark img {
+    width:100px;
+    height:42px;
+  }
+  .charcoal-photo {
+    height:310px;
+    margin-top:20px;
+  }
+  .charcoal-photo img {
+    object-position:50% 72%;
+    transform:scale(1.08);
+  }
+  .charcoal-photo figcaption {
+    left:14px;
+    bottom:12px;
+    font-size:9px;
+  }
+  .booking-options {
+    gap:8px;
+  }
+  .booking-link {
+    margin-top:0;
+  }
+  .mobile-booking a {
+    font-size:11px;
+    padding:0 14px;
+  }
+}
