@@ -1446,3 +1446,54 @@ h1 span {
     padding: 14px 16px;
   }
 }
+
+/* C2 — Photo-first: 料理写真を一段強く見せる案。 */
+.variant-c2-photo {
+  --paper:#f1eee5;
+  --deep:#172b26;
+  --forest:#173f34;
+  --copper:#9a5b38;
+}
+.variant-c2-photo .hero {
+  grid-template-columns:minmax(0,.78fr) minmax(0,1.22fr);
+  gap:clamp(22px,3.8vw,48px);
+}
+.variant-c2-photo .hero-visual { min-height:680px; }
+.variant-c2-photo .hero-copy { padding-top:clamp(48px,6vw,88px); }
+.variant-c2-photo .hero h1 { font-size:clamp(54px,4.7vw,78px); }
+.c2-photo-story {
+  width:min(calc(100% - 64px),1280px);
+  margin:80px auto 10px;
+  display:grid;
+  grid-template-columns:1.15fr .72fr .72fr;
+  gap:24px;
+  align-items:end;
+}
+.c2-photo-story figure { margin:0; overflow:hidden; background:#d7cbb8; }
+.c2-photo-story img { width:100%; height:100%; object-fit:cover; transition:transform .55s cubic-bezier(.22,1,.36,1); }
+.c2-photo-main { height:540px; }
+.c2-photo-sub { height:380px; }
+.c2-photo-copy { padding:20px 10px 36px; }
+.c2-photo-copy h2 {
+  font-family:"Yu Mincho","Hiragino Mincho ProN",serif;
+  font-size:clamp(34px,3vw,48px);
+  line-height:1.45;
+  letter-spacing:.05em;
+}
+.c2-photo-copy>p:last-child { margin-top:22px; color:var(--muted); font-size:13px; }
+@media (hover:hover) and (pointer:fine) {
+  .c2-photo-story figure:hover img { transform:scale(1.035); }
+}
+@media(max-width:700px) {
+  .variant-c2-photo .hero { grid-template-columns:1fr; }
+  .variant-c2-photo .hero-visual { min-height:0; height:420px; }
+  .c2-photo-story {
+    width:min(calc(100% - 32px),1280px);
+    margin-top:52px;
+    grid-template-columns:1fr 1fr;
+    gap:12px;
+  }
+  .c2-photo-main { grid-column:1/-1; height:390px; }
+  .c2-photo-copy { grid-column:1/-1; padding:22px 2px 12px; }
+  .c2-photo-sub { height:230px; }
+}
