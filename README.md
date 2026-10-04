@@ -1,3 +1,13 @@
+# C3 — Instagram-first
+
+C案をベースに、奥さまが運用しているInstagramをサイトの最新情報ハブとして扱う案。
+
+- 電話 + Instagram予約を維持
+- サイト内にInstagram連動エリアを配置
+- 現在はデザイン確認用のローカル画像を表示
+- 採用時はMeta APIまたは適切なフィード連携サービスを接続し、最新投稿を自動表示する
+- サイト側でNewsを二重更新しない運用を想定
+
 # TYPE C — Standard Restaurant / とみ笑
 
 独立した静的HTML実装。`index.html`を直接開くか、作業ディレクトリで `python3 -m http.server 8000` を実行して確認できます。ライブラリ、ビルド、外部フォント、外部JavaScriptは不要です。
